@@ -35,7 +35,7 @@ def generate_tests():
             doc.save(file_name)
         
         text_to_docx(document_text, os.path.join(app.config['UPLOAD_FOLDER'], 'output.docx'))
-        run_test_generation_pipeline(os.path.join(app.config['UPLOAD_FOLDER'], 'output.docx'),output_dir='.',gemini_key="AIzaSyACIHFbDY5ty8BUR7BhPAP7ibdHHC6aUOc")
+        run_test_generation_pipeline(os.path.join(app.config['UPLOAD_FOLDER'], 'output.docx'),output_dir='.',gemini_key="Your API Key here")
 
         # import argparse
         # parser = argparse.ArgumentParser(description="Run automated Playwright tests")
