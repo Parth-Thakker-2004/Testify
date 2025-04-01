@@ -1,0 +1,65 @@
+<style>
+    body {
+      font-family: -apple-system, sans-serif;
+      padding: 20px;
+      text-align: center;
+    }
+    button {
+      background: #18A0FB;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 8px 16px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+    .success {
+      color: #0CA789;
+      margin: 10px 0;
+    }
+  </style>
+  
+  <h2>UI Elements Extractor</h2>
+  <p id="status">Processing UI elements...</p>
+  <p id="count"></p>
+  <button id="download-btn" style="display: none;">Download UI.json</button>
+  <p class="success" id="success" style="display: none;">✅ UI data processed successfully!</p>
+  
+  <script>
+  let uiData = null;
+  
+  // Listen for messages from the plugin code
+  window.onmessage = (event) => {
+    const msg = event.data.pluginMessage;
+    if (!msg) return;
+    
+    if (msg.type === 'ui-data') {
+      uiData = msg.data;
+      const count = uiData.ui_elements.length;
+      
+      document.getElementById('status').textContent = 'UI elements extracted!';
+      document.getElementById('count').textContent = `Found ${count} UI elements`;
+      document.getElementById('download-btn').style.display = 'inline-block';
+      document.getElementById('success').style.display = 'block';
+    }
+  };
+  
+  // Set up download button
+  document.getElementById('download-btn').onclick = () => {
+    if (!uiData) return;
+    
+    // Create a Blob with the JSON data
+    const blob = new Blob([JSON.stringify(uiData, null, 2)], {type: 'application/json'});
+    
+    // Create a download link and trigger it
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'ui.json';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    
+    // Notify the plugin we're done
+    parent.postMessage({ pluginMessage: { type: 'done' }}, '*');
+  };
+  </script>
