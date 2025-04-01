@@ -592,7 +592,7 @@ def main():
     # Configuration parameters
     DOC_PATH = "C:/Users/dange/OneDrive/Desktop/Work/6th sem/test.docx"
     OUTPUT_DIR = "C:/Users/dange/OneDrive/Desktop/Work/6th sem/"
-    GEMINI_KEY = "AIzaSyDcL-kDSiP7D2db51rYtfOmFpCnVa5JQwQ"
+    GEMINI_KEY = "Your API Key Here"
     
     # Parse command line arguments
     import argparse
