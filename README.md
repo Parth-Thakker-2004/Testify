@@ -60,9 +60,6 @@ If you would like to contribute to this project, please follow these guidelines:
 4. Push to the branch (`git push origin feature-branch`).
 5. Create a new Pull Request.
 
-## License
-
-This project is licensed under the [MIT License](LICENSE).
 
 ## Contact
 
