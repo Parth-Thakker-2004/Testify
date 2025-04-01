@@ -70,5 +70,5 @@ If you have any questions or feedback, feel free to contact us:
 
 - [Dev Patel](mailto:dev082004@gmail.com)
 - [Aayush Patel](mailto:patelaayush1830@gmail.com)
-- [Parth Thakkar]
+- [Parth Thakkar](mailto:parththakker2004@gmail.com)
 ```
